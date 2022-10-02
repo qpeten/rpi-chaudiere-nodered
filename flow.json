@@ -1,1 +1,2169 @@
-[]
+[
+    {
+        "id": "ce6731de.950ee8",
+        "type": "tab",
+        "label": "Mesures temperatures",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "799613af.f4e7d4",
+        "type": "tab",
+        "label": "GPIOs",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4e983d22.88eb64",
+        "type": "tab",
+        "label": "V3V",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3a897e43.33b0f2",
+        "type": "tab",
+        "label": "Heartbeat",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7fc05dd0.5e2544",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.150",
+        "port": "1883",
+        "clientid": "RPi-Chaudiere",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "/jarvis/stat/chaudiere/rpi",
+        "birthQos": "1",
+        "birthRetain": "true",
+        "birthPayload": "online",
+        "closeTopic": "/jarvis/stat/chaudiere/rpi",
+        "closeQos": "1",
+        "closeRetain": "true",
+        "closePayload": "offline",
+        "willTopic": "/jarvis/stat/chaudiere/rpi",
+        "willQos": "1",
+        "willRetain": "true",
+        "willPayload": "offline"
+    },
+    {
+        "id": "78228b09.1649d4",
+        "type": "inject",
+        "z": "ce6731de.950ee8",
+        "name": "Every 10s",
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 300,
+        "wires": [
+            [
+                "3eeb5862.d794f8",
+                "db8baef1.8540f",
+                "a13b105e.c6bab8",
+                "46058d54.468c84",
+                "f0a10734.fc9188"
+            ]
+        ]
+    },
+    {
+        "id": "9815731f.8fbe",
+        "type": "change",
+        "z": "ce6731de.950ee8",
+        "name": "Add topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "/jarvis/stat/chaudiere/Chaufferie_Temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 180,
+        "wires": [
+            [
+                "78589468.bff9d4"
+            ]
+        ]
+    },
+    {
+        "id": "bd43f818.420d1",
+        "type": "mqtt out",
+        "z": "ce6731de.950ee8",
+        "name": "Jarvis",
+        "topic": "",
+        "qos": "2",
+        "retain": "false",
+        "broker": "7fc05dd0.5e2544",
+        "x": 930,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b4304eab.548258",
+        "type": "change",
+        "z": "ce6731de.950ee8",
+        "name": "Add topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "/jarvis/stat/chaudiere/DepartSol_Temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 240,
+        "wires": [
+            [
+                "78589468.bff9d4",
+                "a253e95e.25474"
+            ]
+        ]
+    },
+    {
+        "id": "8a91db0a.aaf56",
+        "type": "change",
+        "z": "ce6731de.950ee8",
+        "name": "Add topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "/jarvis/stat/chaudiere/RetourSol_Temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 300,
+        "wires": [
+            [
+                "78589468.bff9d4"
+            ]
+        ]
+    },
+    {
+        "id": "1208c3d0.7c9904",
+        "type": "change",
+        "z": "ce6731de.950ee8",
+        "name": "Add topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "/jarvis/stat/chaudiere/DepartRadiateurs_Temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 360,
+        "wires": [
+            [
+                "78589468.bff9d4"
+            ]
+        ]
+    },
+    {
+        "id": "10c0123a.5f54ce",
+        "type": "change",
+        "z": "ce6731de.950ee8",
+        "name": "Add topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "/jarvis/stat/chaudiere/Chaudiere_Temperature",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 420,
+        "wires": [
+            [
+                "78589468.bff9d4"
+            ]
+        ]
+    },
+    {
+        "id": "78589468.bff9d4",
+        "type": "smooth",
+        "z": "ce6731de.950ee8",
+        "name": "Smoothing",
+        "action": "mean",
+        "count": "5",
+        "round": "1",
+        "mult": "multi",
+        "x": 870,
+        "y": 300,
+        "wires": [
+            [
+                "726f5bd.5ab3b24"
+            ]
+        ]
+    },
+    {
+        "id": "a253e95e.25474",
+        "type": "link out",
+        "z": "ce6731de.950ee8",
+        "name": "Vers vanne 3 voies",
+        "links": [
+            "a9da6e8b.e59a88"
+        ],
+        "x": 895,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "bdadb4a6.f3796",
+        "type": "trigger",
+        "z": "ce6731de.950ee8",
+        "name": "",
+        "op1": "0",
+        "op2": "1",
+        "op1type": "num",
+        "op2type": "num",
+        "duration": "20",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "outputs": 1,
+        "x": 550,
+        "y": 60,
+        "wires": [
+            [
+                "932d684.02d4398"
+            ]
+        ]
+    },
+    {
+        "id": "932d684.02d4398",
+        "type": "link out",
+        "z": "ce6731de.950ee8",
+        "name": "1-wire error",
+        "links": [
+            "d7485435.9cc04"
+        ],
+        "x": 669,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a8edcb7d.db5c88",
+        "type": "comment",
+        "z": "ce6731de.950ee8",
+        "name": "Drive V3V from Chaudière if error",
+        "info": "",
+        "x": 830,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6fc3cf75.ebc828",
+        "type": "inject",
+        "z": "ce6731de.950ee8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 60,
+        "wires": [
+            [
+                "bdadb4a6.f3796"
+            ]
+        ]
+    },
+    {
+        "id": "970a8d36.8c25c",
+        "type": "switch",
+        "z": "ce6731de.950ee8",
+        "name": "Ignore NULL",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "0",
+                "vt": "num",
+                "v2": "100",
+                "v2t": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 470,
+        "y": 120,
+        "wires": [
+            [
+                "bdadb4a6.f3796"
+            ]
+        ]
+    },
+    {
+        "id": "726f5bd.5ab3b24",
+        "type": "switch",
+        "z": "ce6731de.950ee8",
+        "name": "Ignore NULL",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "btwn",
+                "v": "0",
+                "vt": "num",
+                "v2": "100",
+                "v2t": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 890,
+        "y": 320,
+        "wires": [
+            [
+                "bd43f818.420d1"
+            ]
+        ]
+    },
+    {
+        "id": "f0a10734.fc9188",
+        "type": "1-Wire",
+        "z": "ce6731de.950ee8",
+        "identifier": "28-000008509754",
+        "name": "Chaufferie",
+        "format": "1",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "9815731f.8fbe",
+                "30773df7.c5649a"
+            ]
+        ]
+    },
+    {
+        "id": "db8baef1.8540f",
+        "type": "1-Wire",
+        "z": "ce6731de.950ee8",
+        "identifier": "28-00000850c139",
+        "name": "Départ radiateurs",
+        "format": "1",
+        "x": 310,
+        "y": 360,
+        "wires": [
+            [
+                "1208c3d0.7c9904",
+                "e00e65dc.b6a4a"
+            ]
+        ]
+    },
+    {
+        "id": "a13b105e.c6bab8",
+        "type": "1-Wire",
+        "z": "ce6731de.950ee8",
+        "identifier": "28-00000850ede3",
+        "name": "Retour Sol",
+        "format": "1",
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "8a91db0a.aaf56",
+                "f8fac2d4.d94dc8"
+            ]
+        ]
+    },
+    {
+        "id": "3eeb5862.d794f8",
+        "type": "1-Wire",
+        "z": "ce6731de.950ee8",
+        "identifier": "28-00000850f064",
+        "name": "Chaudière",
+        "format": "1",
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "10c0123a.5f54ce",
+                "e8bbdba1.402148"
+            ]
+        ]
+    },
+    {
+        "id": "46058d54.468c84",
+        "type": "1-Wire",
+        "z": "ce6731de.950ee8",
+        "identifier": "28-000008515182",
+        "name": "Départ sol",
+        "format": "1",
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "b4304eab.548258",
+                "970a8d36.8c25c",
+                "27667540.a2cb6a"
+            ]
+        ]
+    },
+    {
+        "id": "4601abad.cb5f04",
+        "type": "comment",
+        "z": "ce6731de.950ee8",
+        "name": "Sondes T°",
+        "info": "",
+        "x": 60,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "30773df7.c5649a",
+        "type": "debug",
+        "z": "ce6731de.950ee8",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "x": 490,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "e00e65dc.b6a4a",
+        "type": "debug",
+        "z": "ce6731de.950ee8",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "x": 490,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f8fac2d4.d94dc8",
+        "type": "debug",
+        "z": "ce6731de.950ee8",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "x": 490,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "27667540.a2cb6a",
+        "type": "debug",
+        "z": "ce6731de.950ee8",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "x": 490,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e8bbdba1.402148",
+        "type": "debug",
+        "z": "ce6731de.950ee8",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "x": 490,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "27d34121.f3906e",
+        "type": "mqtt in",
+        "z": "799613af.f4e7d4",
+        "name": "Jarvis",
+        "topic": "/jarvis/in/command/cave/chaudiere/#",
+        "qos": "2",
+        "broker": "7fc05dd0.5e2544",
+        "inputs": 0,
+        "x": 50,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c085c90d.e5b8d8",
+        "type": "switch",
+        "z": "799613af.f4e7d4",
+        "name": "Which setpoint",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "55",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "41",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "35",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "30",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 5,
+        "x": 480,
+        "y": 720,
+        "wires": [
+            [
+                "97a13952.63f6b8",
+                "41d4da4a.72715c",
+                "94e423b6.0f4ff8"
+            ],
+            [
+                "ef18d6ee.e18dd8"
+            ],
+            [
+                "befc924f.3bd4f8"
+            ],
+            [
+                "118be9c5.9ab296",
+                "bbcaed50.1119c"
+            ],
+            [
+                "ba857a7c.a52888",
+                "b83b1162.13c378"
+            ]
+        ]
+    },
+    {
+        "id": "88b4d68.af3fd28",
+        "type": "rpi-gpio out",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "pin": "19",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 920,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "c17fdccf.61e8c",
+        "type": "rpi-gpio out",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "pin": "13",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 920,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "d2607d0e.7d1bf",
+        "type": "rpi-gpio out",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "pin": "16",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 920,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "ba857a7c.a52888",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 820,
+        "wires": [
+            [
+                "88b4d68.af3fd28",
+                "c17fdccf.61e8c"
+            ]
+        ]
+    },
+    {
+        "id": "b83b1162.13c378",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 840,
+        "wires": [
+            [
+                "d2607d0e.7d1bf"
+            ]
+        ]
+    },
+    {
+        "id": "bbcaed50.1119c",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 780,
+        "wires": [
+            [
+                "d2607d0e.7d1bf"
+            ]
+        ]
+    },
+    {
+        "id": "118be9c5.9ab296",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 760,
+        "wires": [
+            [
+                "88b4d68.af3fd28",
+                "c17fdccf.61e8c"
+            ]
+        ]
+    },
+    {
+        "id": "befc924f.3bd4f8",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 720,
+        "wires": [
+            [
+                "88b4d68.af3fd28",
+                "c17fdccf.61e8c",
+                "d2607d0e.7d1bf"
+            ]
+        ]
+    },
+    {
+        "id": "94e423b6.0f4ff8",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 640,
+        "wires": [
+            [
+                "d2607d0e.7d1bf"
+            ]
+        ]
+    },
+    {
+        "id": "ef18d6ee.e18dd8",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 680,
+        "wires": [
+            [
+                "88b4d68.af3fd28",
+                "c17fdccf.61e8c",
+                "d2607d0e.7d1bf"
+            ]
+        ]
+    },
+    {
+        "id": "97a13952.63f6b8",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "0",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 600,
+        "wires": [
+            [
+                "88b4d68.af3fd28"
+            ]
+        ]
+    },
+    {
+        "id": "41d4da4a.72715c",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 620,
+        "wires": [
+            [
+                "c17fdccf.61e8c"
+            ]
+        ]
+    },
+    {
+        "id": "151d4970.4a5bef",
+        "type": "status",
+        "z": "799613af.f4e7d4",
+        "name": "MQTT status",
+        "scope": [
+            "dae6489c.8dd24"
+        ],
+        "x": 70,
+        "y": 420,
+        "wires": [
+            [
+                "5500ea3d.d49fa4"
+            ]
+        ],
+        "outputLabels": [
+            "Error"
+        ]
+    },
+    {
+        "id": "5500ea3d.d49fa4",
+        "type": "switch",
+        "z": "799613af.f4e7d4",
+        "name": "Is disconnected",
+        "property": "status.text",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "disconnected",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "connecting",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 80,
+        "y": 440,
+        "wires": [
+            [
+                "6d2b67e2.112da8"
+            ],
+            [
+                "6d2b67e2.112da8"
+            ]
+        ]
+    },
+    {
+        "id": "c91cbbb4.eecc5",
+        "type": "rpi-gpio out",
+        "z": "799613af.f4e7d4",
+        "name": "Relais 2 - Défaut Pompe Sol OFF=1",
+        "pin": "6",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1010,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "da270391.345be",
+        "type": "rpi-gpio out",
+        "z": "799613af.f4e7d4",
+        "name": "Relais 1 - Défaut Pompe Radiateurs ON=0",
+        "pin": "18",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1030,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "e41d478e.e94438",
+        "type": "switch",
+        "z": "799613af.f4e7d4",
+        "name": "Pompe",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "Radiateurs_Pump",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "Sol_Pump",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "d748c6d6.095318",
+                "53a664bf.375c0c",
+                "da270391.345be"
+            ],
+            [
+                "ad6a1189.d32e9",
+                "d748c6d6.095318",
+                "c91cbbb4.eecc5"
+            ]
+        ]
+    },
+    {
+        "id": "bbd9b86c.2af46",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "Pompe Sol OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Sol_Pump",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 400,
+        "wires": [
+            [
+                "e41d478e.e94438"
+            ]
+        ]
+    },
+    {
+        "id": "a1e363fe.66a038",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "Pompe Rad ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Radiateurs_Pump",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 440,
+        "wires": [
+            [
+                "e41d478e.e94438"
+            ]
+        ]
+    },
+    {
+        "id": "db8e5fa6.44a29",
+        "type": "switch",
+        "z": "799613af.f4e7d4",
+        "name": "Demande T Chaudière",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "Chaudiere_Setpoint",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 250,
+        "y": 720,
+        "wires": [
+            [
+                "c085c90d.e5b8d8",
+                "116f0948.31ef5f"
+            ]
+        ]
+    },
+    {
+        "id": "fc667cfd.92d73",
+        "type": "rpi-gpio out",
+        "z": "799613af.f4e7d4",
+        "name": "Relais 4,5 - sonde temp extérieure vers chaudière ON=1",
+        "pin": "5",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1070,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5438b263.dc6c24",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "Ancien thermostat ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 460,
+        "wires": [
+            [
+                "673e5317.3e53a4"
+            ]
+        ]
+    },
+    {
+        "id": "360fa03.6bad3e",
+        "type": "function",
+        "z": "799613af.f4e7d4",
+        "name": "Save last msg time",
+        "func": "\nif (msg.retain) { //Do not process messages that we know are old\n    return msg;\n}\n\nglobal.set(\"lastMQTTMessage\", Math.round((new Date()).getTime() / 1000));\nreturn msg;",
+        "outputs": "0",
+        "noerr": 0,
+        "x": 270,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "dca1bec2.85a918",
+        "type": "function",
+        "z": "799613af.f4e7d4",
+        "name": "Check last msg time",
+        "func": "//Max time between messages in seconds\nMAX_TIME = 60*60*12;\n\n\n//Code\nlastMessage = global.get(\"lastMQTTMessage\");\ncurrentTime = Math.round((new Date()).getTime() / 1000);\n\nif (currentTime === undefined || currentTime - lastMessage > MAX_TIME*1000) {\n    return msg;\n}\nreturn null;",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 280,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "91b24216.f6abc8",
+        "type": "inject",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 980,
+        "wires": [
+            [
+                "dca1bec2.85a918",
+                "2b75b137.9b52ae"
+            ]
+        ]
+    },
+    {
+        "id": "6d2b67e2.112da8",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "Reassemble",
+        "rules": [],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "bbd9b86c.2af46",
+                "a1e363fe.66a038",
+                "5438b263.dc6c24"
+            ]
+        ]
+    },
+    {
+        "id": "1ef77dec.c77852",
+        "type": "rpi-gpio out",
+        "z": "799613af.f4e7d4",
+        "name": "Relais 12 - Régulation V3V Chaudière ON=1",
+        "pin": "21",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1030,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "11aa998e.8ea8d6",
+        "type": "rpi-gpio out",
+        "z": "799613af.f4e7d4",
+        "name": "Relais 11 - Régulation V3V Chaudière ON=1",
+        "pin": "20",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1030,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "2c8801f9.4d808e",
+        "type": "rpi-gpio in",
+        "z": "799613af.f4e7d4",
+        "name": "Bruleur on/off (capteur audio)",
+        "pin": "22",
+        "intype": "tri",
+        "debounce": "50",
+        "read": true,
+        "bcm": true,
+        "x": 120,
+        "y": 1120,
+        "wires": [
+            [
+                "44f17fbe.3fd938"
+            ]
+        ]
+    },
+    {
+        "id": "44f17fbe.3fd938",
+        "type": "trigger",
+        "z": "799613af.f4e7d4",
+        "name": "Debounce",
+        "op1": "ON",
+        "op2": "OFF",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "20",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "outputs": 1,
+        "x": 470,
+        "y": 1120,
+        "wires": [
+            [
+                "a4ddb619.28cbe8",
+                "cd3049ce.374ff8"
+            ]
+        ]
+    },
+    {
+        "id": "a4ddb619.28cbe8",
+        "type": "mqtt out",
+        "z": "799613af.f4e7d4",
+        "name": "MQTT",
+        "topic": "/jarvis/out/state/cave/chaudiere/ChaudiereBurningSensor",
+        "qos": "2",
+        "retain": "false",
+        "broker": "7fc05dd0.5e2544",
+        "x": 910,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "cd3049ce.374ff8",
+        "type": "debug",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "active": false,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "topic",
+        "x": 600,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "673e5317.3e53a4",
+        "type": "rpi-gpio out",
+        "z": "799613af.f4e7d4",
+        "name": "Relais 3 - Défaut Ancien thermostat ON=0",
+        "pin": "26",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1020,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "4306c89e.5c235",
+        "type": "comment",
+        "z": "799613af.f4e7d4",
+        "name": "Relais 11 et 12 doivent toujours être dans le même état",
+        "info": "",
+        "x": 1140,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "2b75b137.9b52ae",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "true",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 980,
+        "wires": [
+            [
+                "1ef77dec.c77852",
+                "11aa998e.8ea8d6"
+            ]
+        ]
+    },
+    {
+        "id": "d7485435.9cc04",
+        "type": "link in",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "links": [
+            "932d684.02d4398"
+        ],
+        "x": 675,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d748c6d6.095318",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "Send to MQTT",
+        "rules": [
+            {
+                "t": "change",
+                "p": "topic",
+                "pt": "msg",
+                "from": "/in/command/",
+                "fromt": "str",
+                "to": "/out/state/",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "topic",
+                "pt": "msg",
+                "from": "/cmnd/",
+                "fromt": "str",
+                "to": "/stat/",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "ON",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 240,
+        "wires": [
+            [
+                "baa62e9d.5f3ae"
+            ]
+        ]
+    },
+    {
+        "id": "baa62e9d.5f3ae",
+        "type": "mqtt out",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "retain": "false",
+        "broker": "7fc05dd0.5e2544",
+        "x": 1090,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "116f0948.31ef5f",
+        "type": "debug",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "x": 270,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "dae6489c.8dd24",
+        "type": "mqtt in",
+        "z": "799613af.f4e7d4",
+        "name": "Jarvis",
+        "topic": "/jarvis/cmnd/chaudiere/#",
+        "qos": "2",
+        "broker": "7fc05dd0.5e2544",
+        "inputs": 0,
+        "x": 70,
+        "y": 240,
+        "wires": [
+            [
+                "db8e5fa6.44a29",
+                "360fa03.6bad3e",
+                "e16f30e2.78127",
+                "37eee8e4.6161c8"
+            ]
+        ]
+    },
+    {
+        "id": "ad6a1189.d32e9",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "Invert",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e16f30e2.78127",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "Ancien thermostat OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 420,
+        "wires": [
+            [
+                "673e5317.3e53a4"
+            ]
+        ]
+    },
+    {
+        "id": "dc516c1d.a4f55",
+        "type": "comment",
+        "z": "799613af.f4e7d4",
+        "name": "1/true = lumière éteinte = défaut",
+        "info": "",
+        "x": 990,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "37eee8e4.6161c8",
+        "type": "change",
+        "z": "799613af.f4e7d4",
+        "name": "--> true/false",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "e41d478e.e94438"
+            ]
+        ]
+    },
+    {
+        "id": "f48a1ee1.38624",
+        "type": "inject",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 690,
+        "y": 520,
+        "wires": [
+            [
+                "fc667cfd.92d73"
+            ]
+        ]
+    },
+    {
+        "id": "3d2730f1.b723e",
+        "type": "comment",
+        "z": "799613af.f4e7d4",
+        "name": "! Noeud déconnecté",
+        "info": "",
+        "x": 490,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f1b15bfd.9cfce8",
+        "type": "inject",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 750,
+        "y": 180,
+        "wires": [
+            [
+                "da270391.345be"
+            ]
+        ]
+    },
+    {
+        "id": "4c74b14a.a4ab3",
+        "type": "debug",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "x": 780,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "53a664bf.375c0c",
+        "type": "debug",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "x": 730,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f94884528d0ec30b",
+        "type": "inject",
+        "z": "799613af.f4e7d4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 750,
+        "y": 140,
+        "wires": [
+            [
+                "da270391.345be"
+            ]
+        ]
+    },
+    {
+        "id": "5b370f9a.ad3a68",
+        "type": "mqtt in",
+        "z": "4e983d22.88eb64",
+        "name": "Temp cible",
+        "topic": "/jarvis/in/command/cave/chaudiere/tempVanne3Voies",
+        "qos": "2",
+        "broker": "7fc05dd0.5e2544",
+        "inputs": 0,
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "3781720a.2891be"
+            ]
+        ]
+    },
+    {
+        "id": "3781720a.2891be",
+        "type": "function",
+        "z": "4e983d22.88eb64",
+        "name": "Set target temp",
+        "func": "MIN_TEMP = 0;\nMAX_TEMP = 55;\n\n//Code\nnewTemp = parseFloat(msg.payload);\nif (isNaN(newTemp)) {\n    node.error(\"Invalid temp received: NaN\", msg);\n    node.status({fill:\"red\",shape:\"ring\",text:\"Invalid temp received. NaN\"});\n    return null;\n}\nelse if (newTemp < MIN_TEMP || newTemp > MAX_TEMP) {\n    node.error(\"Invalid temp received: out of bounds\", msg);\n    node.status({fill:\"red\",shape:\"ring\",text:\"Invalid temp received. OfB\"});\n    return null;\n}\nelse {\n    flow.set(\"targetTemp\", newTemp);\n}\n\nreturn null;",
+        "outputs": "0",
+        "noerr": 0,
+        "x": 660,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "a0048c0c.7c2e4",
+        "type": "trigger",
+        "z": "4e983d22.88eb64",
+        "name": "4secs than stop",
+        "op1": "",
+        "op2": "STOP",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "4",
+        "extend": true,
+        "units": "s",
+        "reset": "",
+        "outputs": 1,
+        "x": 320,
+        "y": 360,
+        "wires": [
+            [
+                "af07cdfb.5027d8"
+            ]
+        ]
+    },
+    {
+        "id": "af07cdfb.5027d8",
+        "type": "switch",
+        "z": "4e983d22.88eb64",
+        "name": "Direction",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "UP",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "STOP",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 3,
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "36a39223.854e36",
+                "ac000e49.e22568"
+            ],
+            [
+                "b11df705.3ade1"
+            ],
+            [
+                "36a39223.854e36",
+                "2c96922.acd316e"
+            ]
+        ]
+    },
+    {
+        "id": "936d42c8.d6494",
+        "type": "rpi-gpio out",
+        "z": "4e983d22.88eb64",
+        "name": "Relai 9 - Activate motor 0=ON",
+        "pin": "17",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 810,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e2470f98.c159b8",
+        "type": "rpi-gpio out",
+        "z": "4e983d22.88eb64",
+        "name": "Relai 10 - Direction 0=UP",
+        "pin": "27",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 790,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "36a39223.854e36",
+        "type": "change",
+        "z": "4e983d22.88eb64",
+        "name": "Activate",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b11df705.3ade1",
+        "type": "change",
+        "z": "4e983d22.88eb64",
+        "name": "Desactivate",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac000e49.e22568",
+        "type": "change",
+        "z": "4e983d22.88eb64",
+        "name": "UP",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2c96922.acd316e",
+        "type": "change",
+        "z": "4e983d22.88eb64",
+        "name": "Down",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "515662b9.0ec304",
+        "type": "inject",
+        "z": "4e983d22.88eb64",
+        "name": "Initialize at 15°C",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "topic": "",
+        "payload": "15",
+        "payloadType": "num",
+        "x": 100,
+        "y": 200,
+        "wires": [
+            [
+                "3781720a.2891be"
+            ]
+        ]
+    },
+    {
+        "id": "3e4a36fa.ebecaa",
+        "type": "function",
+        "z": "4e983d22.88eb64",
+        "name": "Decide direction",
+        "func": "HYSTERESIS = 1;\nMIN_TEMP = 0;\nMAX_TEMP = 100;\nMIN_TARGET = 20; //If the target is below this value, just keep going down.\nBIG_T_DIFFERENCE = 6; //If the temperature difference is bigger than that, go down faster\n\n\n//Code\nfunction goDownAndExit() {\n    msg.payload = \"DONW\";\n    return [null, msg];\n}\ntargetTemp = flow.get(\"targetTemp\");\nmsg.targetTemp = targetTemp;\nif (targetTemp === undefined) {\n    node.status({fill:\"red\",shape:\"ring\",text:\"Target temp is undefined\"});\n    goDownAndExit();\n}\nnewTemp = parseFloat(msg.payload);\nif (isNaN(newTemp)) {\n    node.error(\"Invalid temp received: NaN\", msg);\n    node.status({fill:\"red\",shape:\"ring\",text:\"Invalid temp received\"});\n    goDownAndExit();\n}\nelse if (newTemp < MIN_TEMP || newTemp > MAX_TEMP) {\n    node.error(\"Invalid temp received: out of bounds\", msg);\n    node.status({fill:\"red\",shape:\"ring\",text:\"Invalid temp received\"});\n    goDownAndExit();\n}\n\nif (targetTemp <= MIN_TARGET) {\n    msg.payload = \"DOWN\";\n    return [null, msg];\n}\nelse if (newTemp > (targetTemp + HYSTERESIS)) {\n    msg.payload = \"DOWN\";\n}\nelse if (newTemp < (targetTemp - HYSTERESIS)) {\n    msg.payload = \"UP\";\n}\nelse {\n    msg.payload = \"STOP\";\n}\n\nif (Math.abs(newTemp - targetTemp) > BIG_T_DIFFERENCE) {\n    return [null, msg];\n}\n\n\nreturn [msg, null];",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 200,
+        "y": 420,
+        "wires": [
+            [
+                "a0048c0c.7c2e4"
+            ],
+            [
+                "af07cdfb.5027d8"
+            ]
+        ]
+    },
+    {
+        "id": "ed8b5d27.904018",
+        "type": "status",
+        "z": "4e983d22.88eb64",
+        "name": "MQTT status",
+        "scope": [
+            "5b370f9a.ad3a68"
+        ],
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "7ab23693.e6345"
+            ]
+        ]
+    },
+    {
+        "id": "7ab23693.e6345",
+        "type": "switch",
+        "z": "4e983d22.88eb64",
+        "name": "Is disconnected",
+        "property": "status.text",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "disconnected",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "connecting",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 260,
+        "y": 80,
+        "wires": [
+            [
+                "f175bc0c.f9e2"
+            ],
+            [
+                "f175bc0c.f9e2"
+            ]
+        ]
+    },
+    {
+        "id": "f175bc0c.f9e2",
+        "type": "change",
+        "z": "4e983d22.88eb64",
+        "name": "Set target to 45°C",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "45",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 80,
+        "wires": [
+            [
+                "3781720a.2891be"
+            ]
+        ]
+    },
+    {
+        "id": "a9da6e8b.e59a88",
+        "type": "link in",
+        "z": "4e983d22.88eb64",
+        "name": "Depuis 1-wire",
+        "links": [
+            "a253e95e.25474"
+        ],
+        "x": 55,
+        "y": 420,
+        "wires": [
+            [
+                "3e4a36fa.ebecaa"
+            ]
+        ]
+    },
+    {
+        "id": "4da73261.6df204",
+        "type": "function",
+        "z": "4e983d22.88eb64",
+        "name": "Save last msg time",
+        "func": "//Max time between messages in seconds\nMAX_TIME = 60*60;\n\n\n//Code\nlastMessage = global.get(\"lastMQTTMessage\");\ncurrentTime = Math.round((new Date()).getTime() / 1000);\n\nif (currentTime - lastMessage > MAX_TIME*1000) {\n    msg.payload = \"DEFAULT\";\n}\nreturn msg;",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 270,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f30e5dbc.3a321",
+        "type": "inject",
+        "z": "4e983d22.88eb64",
+        "name": "",
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "4da73261.6df204"
+            ]
+        ]
+    },
+    {
+        "id": "d62c32a8.ef8498",
+        "type": "inject",
+        "z": "4e983d22.88eb64",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "UP",
+        "payloadType": "str",
+        "x": 122,
+        "y": 544,
+        "wires": [
+            [
+                "af07cdfb.5027d8"
+            ]
+        ]
+    },
+    {
+        "id": "63a63d0b.90bb04",
+        "type": "inject",
+        "z": "4e983d22.88eb64",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "STOP",
+        "payloadType": "str",
+        "x": 122,
+        "y": 584,
+        "wires": [
+            [
+                "af07cdfb.5027d8"
+            ]
+        ]
+    },
+    {
+        "id": "f9a79dd6.a0d81",
+        "type": "inject",
+        "z": "4e983d22.88eb64",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "DOWN",
+        "payloadType": "str",
+        "x": 122,
+        "y": 624,
+        "wires": [
+            [
+                "af07cdfb.5027d8"
+            ]
+        ]
+    },
+    {
+        "id": "58f6fd2a.815174",
+        "type": "comment",
+        "z": "4e983d22.88eb64",
+        "name": "4 raccords à mettre pour activer",
+        "info": "",
+        "x": 790,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "cf175be0.6ca368",
+        "type": "mqtt out",
+        "z": "3a897e43.33b0f2",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "retain": "false",
+        "broker": "7fc05dd0.5e2544",
+        "x": 370,
+        "y": 60,
+        "wires": []
+    }
+]
