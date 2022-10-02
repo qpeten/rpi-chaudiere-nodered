@@ -1372,6 +1372,7 @@
         "id": "d7485435.9cc04",
         "type": "link in",
         "z": "799613af.f4e7d4",
+        "d": true,
         "name": "",
         "links": [
             "932d684.02d4398"
@@ -1379,7 +1380,9 @@
         "x": 675,
         "y": 940,
         "wires": [
-            []
+            [
+                "2b75b137.9b52ae"
+            ]
         ]
     },
     {
@@ -2152,6 +2155,16 @@
                 "af07cdfb.5027d8"
             ]
         ]
+    },
+    {
+        "id": "1480b8a12e668efa",
+        "type": "comment",
+        "z": "4e983d22.88eb64",
+        "name": "Aussi remettre lien de flow Mesures > GPIOs",
+        "info": "",
+        "x": 1070,
+        "y": 420,
+        "wires": []
     },
     {
         "id": "cf175be0.6ca368",
