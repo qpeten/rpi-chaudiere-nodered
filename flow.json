@@ -2154,16 +2154,6 @@
         ]
     },
     {
-        "id": "58f6fd2a.815174",
-        "type": "comment",
-        "z": "4e983d22.88eb64",
-        "name": "4 raccords à mettre pour activer",
-        "info": "",
-        "x": 790,
-        "y": 280,
-        "wires": []
-    },
-    {
         "id": "cf175be0.6ca368",
         "type": "mqtt out",
         "z": "3a897e43.33b0f2",
